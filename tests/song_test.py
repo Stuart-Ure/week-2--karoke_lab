@@ -12,9 +12,13 @@ class TestSong(unittest.TestCase):
         self.song2 = Song ("All my life", " Foo Fighters")
         self.song3 = Song ("Blank Space", "Taylor Swift")
 
-        self.room1 = Room ("NYC_Room", 3)
-        self.room2 = Room ("Leith_room", 5)
-
         self.guest1 = Guest ("Alfredo")
         self.guest2 = Guest ("Winston")
         self.guest3 = Guest ("Jesus")
+
+    def test_song_has_title(self):
+        self.assertEqual("Nosebleed Section", self.song1.title)
+
+    def test_song_has_artist(self):
+        self.song2 = Song("All my life", "Foo Fighters")
+        self.assertEqual("Foo Fighters", self.song2.artist)

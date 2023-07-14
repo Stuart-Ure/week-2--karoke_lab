@@ -13,8 +13,8 @@ class TestRoom(unittest.TestCase):
 
         self.songs = [self.song1, self.song2, self.song3]
     
-        self.room1 = Room ("NYC Room", 3)  #need to add person to the room in the setup before the remove function can work, need to add attendance.
-        self.room2 = Room ("Leith room", 5) 
+        self.room1 = Room ("NYC Room", 3, 10)  #need to add person to the room in the setup before the remove function can work, need to add attendance.
+        self.room2 = Room ("Leith room", 5, 5) 
 
         self.rooms = [self.room1, self.room2]
 
@@ -48,6 +48,13 @@ class TestRoom(unittest.TestCase):
     def test_add_song_to_room(self):
         self.room1.add_song_to_room(self.song1)
         self.assertEqual(1, len(self.room1.songs))
+
+    def test_room_till_starts_empty(self):
+        self.assertEqual(0, self.room2.till)
+
+    def test_can_add_to_till(self):
+        self.room2.till = 10
+        self.assertEqual(10, self.room2.till)
 
 
     
